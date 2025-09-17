@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Contact Page of Matthew Voyles</title>
+</head>
+<body>
+    <h1>Contact Me</h1>
+    <br>
+    <!-- Enter video embed here -->
+    <br>
+    <form action="" name="feedback">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" name="fname" id="firstName" placeholder="anonymous" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" name="lname" id="lastName" placeholder="anonymous" required>
+        <br><br>
+        <label for="eMail">Email:</label>
+        <input type="email" class="form-control" name="mail" id="eMail" placeholder="name@domain.com">
+        <br>
+        <p>Would you recommend this website?</p>
+        <label><input type="radio" name="recommend" value="yes">Yes</label>
+        <label><input type="radio" name="recommend" value="no" checked>No</label>
+        <br><br>
+        <label for="favsite">Choose your favourite website:</label>
+        <br>
+        <select name="website" class="form-control" id="favsite" size="6" multiple>
+            <optgroup label="Choose:">
+            <option value="facebook">Facebook</option>
+            <option value="twitter">Twitter</option>
+            <option value="instagram">Instagram</option>
+            <option value="snapchat">Snapchat</option>
+            <option value="reddit">Reddit</option>
+            </optgroup>
+        </select>
+        <br>
+        <br>
+        <label for="rating">How would you rate this website on a scale from 1-10?</label>
+        <br>
+        <input type="range" name="rating" min="1" max="10" value="1">
+        <br><br>
+        <label for="comments">Enter comments below:</label>
+        <br>
+        <textarea name="comment" id="comments" placeholder="Enter additional comments here"></textarea>
+        <br><br>
+        <input type="submit" name="formSubmit" value="Submit">
+        <input type="reset" name="formReset" value="Reset">
+    </form>
+</body>
+</html>
