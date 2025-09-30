@@ -1,0 +1,64 @@
+:root {
+    background-color: rgb(255, 255, 255);
+}
+footer {
+    position: fixed;
+    width: 230vh;
+    bottom: 0%;
+    background-color: white;
+    border-top: 2px solid black;
+}
+button {
+    position: absolute;
+    margin-left: 2vh;
+}
+div.introduction {
+    position: absolute;
+    width: 170vh;
+    left: 19vh;
+    top: 35vh;
+}
+div.introduction h1 {
+    position: absolute;
+}
+div.introduction img {
+    width: 160vh;
+    margin-top: 10px;
+    padding-left: 5vh;
+}
+div.assignment {
+    position:absolute;
+    width: 170vh;
+    left: 86vh;
+    top: 40vh;
+}
+div.assignment h1 {
+    position: absolute;
+}
+div.portfolio {
+    position: absolute;
+    width: 170vh;
+    left: 86vh;
+    top: 40vh;
+}
+div.portfolio h1 {
+    position: absolute;
+}
+address {
+    position: absolute;
+    width: 170vh;
+    left: 88vh;
+    top: 40vh;
+}
+#contactinfo{
+    position: absolute;
+}
+div.schedule {
+    position: absolute;
+    width: 170vh;
+    left: 57vh;
+    top: 35vh;
+}
+div.schedule h1 {
+    position: absolute;
+}
