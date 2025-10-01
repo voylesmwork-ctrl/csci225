@@ -35,6 +35,9 @@ div.introduction img {
     padding-left: 5vh;
     visibility: hidden;
 }
+div.introduction h1:hover + div.introduction p + div.introduction img {
+    visibility: visible;
+}
 div.assignment {
     position:absolute;
     width: 170vh;
@@ -51,6 +54,9 @@ div.assignment h1:hover {
 }
 div.assignment ol {
     visibility: hidden;
+}
+div.assignment h1:hover + div.assignment ol{
+    visibility: visible;
 }
 div.portfolio {
     position: absolute;
@@ -69,6 +75,9 @@ div.portfolio h1:hover {
 div.portfolio ul {
     visibility: hidden;
 }
+div.portfolio h1:hover + div.portfolio ul{
+    visibility: visible;
+}
 address {
     position: absolute;
     width: 170vh;
@@ -86,6 +95,9 @@ address {
 address a {
     visibility: hidden;
 }
+#contactinfo:hover + address a{
+    visibility: visible;
+}
 div.schedule {
     position: absolute;
     width: 170vh;
@@ -102,4 +114,7 @@ div.schedule h1:hover {
 }
 div.schedule table {
     visibility: hidden;
+}
+div.schedule h1:hover + div.schedule table{
+    visibility: visible;
 }
