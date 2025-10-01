@@ -20,11 +20,20 @@ div.introduction {
 }
 div.introduction h1 {
     position: absolute;
+    left: -17vh;
+    top: -5vh;
+}
+div.introduction h1:hover {
+    color: red;
+}
+div.introduction p {
+    visibility: hidden;
 }
 div.introduction img {
     width: 160vh;
     margin-top: 10px;
     padding-left: 5vh;
+    visibility: hidden;
 }
 div.assignment {
     position:absolute;
@@ -34,6 +43,14 @@ div.assignment {
 }
 div.assignment h1 {
     position: absolute;
+    left: -84.5vh;
+    top: -4vh;
+}
+div.assignment h1:hover {
+    color: red;
+}
+div.assignment ol {
+    visibility: hidden;
 }
 div.portfolio {
     position: absolute;
@@ -43,6 +60,14 @@ div.portfolio {
 }
 div.portfolio h1 {
     position: absolute;
+    left: -84.5vh;
+    top: 2.25vh;
+}
+div.portfolio h1:hover {
+    color: red;
+}
+div.portfolio ul {
+    visibility: hidden;
 }
 address {
     position: absolute;
@@ -50,8 +75,16 @@ address {
     left: 88vh;
     top: 40vh;
 }
-#contactinfo{
+#contactinfo {
     position: absolute;
+    left: -86.29vh;
+    top: 10.1vh;
+}
+#contactinfo:hover {
+    color: red;
+}
+address a {
+    visibility: hidden;
 }
 div.schedule {
     position: absolute;
@@ -61,4 +94,12 @@ div.schedule {
 }
 div.schedule h1 {
     position: absolute;
+    left: -55.35vh;
+    top: 18.5vh;
+}
+div.schedule h1:hover {
+    color: red;
+}
+div.schedule table {
+    visibility: hidden;
 }
