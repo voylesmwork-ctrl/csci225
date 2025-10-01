@@ -14,29 +14,32 @@ button {
 }
 div.introduction {
     position: absolute;
-    width: 170vh;
-    left: 19vh;
+    width: 160vh;
+    left: 30vh;
     top: 35vh;
 }
 div.introduction h1 {
     position: absolute;
-    left: -17vh;
+    left: -28.15vh;
     top: -5vh;
 }
 div.introduction h1:hover {
     color: red;
 }
 div.introduction p {
-    visibility: hidden;
+    display: none;
 }
 div.introduction img {
-    width: 160vh;
+    width: 150vh;
     margin-top: 10px;
     padding-left: 5vh;
-    visibility: hidden;
+    display: none;
 }
-div.introduction h1:hover + div.introduction p + div.introduction img {
-    visibility: visible;
+.introduction h1:hover ~ .introPar {
+    display: block;
+}
+.introduction h1:hover ~ img {
+    display: block;
 }
 div.assignment {
     position:absolute;
@@ -55,7 +58,7 @@ div.assignment h1:hover {
 div.assignment ol {
     visibility: hidden;
 }
-div.assignment h1:hover + div.assignment ol{
+.assignment h1:hover ~ .assList{
     visibility: visible;
 }
 div.portfolio {
@@ -73,10 +76,13 @@ div.portfolio h1:hover {
     color: red;
 }
 div.portfolio ul {
-    visibility: hidden;
+    display: none;
 }
-div.portfolio h1:hover + div.portfolio ul{
-    visibility: visible;
+.portfolio h1:hover ~ .portList1 {
+  display: block;
+}
+.portfolio h1:hover ~ .portList1 .portList2 {
+  display: block;
 }
 address {
     position: absolute;
@@ -92,8 +98,11 @@ address {
 #contactinfo:hover {
     color: red;
 }
-address a {
-    visibility: hidden;
+.addLink {
+    display: none;
+}
+#contactinfo:hover ~ .addLink {
+    display: inline;
 }
 #contactinfo:hover + address a{
     visibility: visible;
@@ -113,8 +122,8 @@ div.schedule h1:hover {
     color: red;
 }
 div.schedule table {
-    visibility: hidden;
+    display: none;
 }
-div.schedule h1:hover + div.schedule table{
-    visibility: visible;
+.schedule h1:hover ~ .schedTable{
+    display: table;
 }
