@@ -5,17 +5,42 @@
     <title>Contact Page of Matthew Voyles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style type="text/css">
+        .navbar {
+            color: white;
+        }
+
+        .bg-darkblue{
+            background-color: darkblue !important;
+        }
+
+        nav a {
+            color: white;
+        }
+
+        iframe {
+            border: 7px solid lightblue;
+            border-radius: 5px;
+        }
+
+        form {
+            margin-top: 10px;
+            padding: 5px;
+            border: 7px solid lightblue;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Contact Me</h1>
+    <h1 class="m-3">Contact Me</h1>
     <div class="container-xxl">
         <div class="row">
             <div class="col">
-                <div class="navbar navbar-expand-lg">
-                    <ul class="navbar nav">
-                        <li class="nav-item"><a class="nav-link" href="https://www.usca.edu/">USCA Main Webpage</a></li>
+                <div class="navbar navbar-expand-lg bg-darkblue text-white">
+                    <ul class="navbar nav fw-bold">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Homepage</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://www.usca.edu/">USCA Main Webpage</a></li>
                         <li class="nav-item"><a class="nav-link" href="ContactMe.html">Contact Info</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://github.com/voylesmwork-ctrl">My
                                 GitHub</a></li>
@@ -25,7 +50,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <h4>Video I recommend &darr;</h4>
+                <h4 class="my-3 mx-2">Video I recommend &darr;</h4>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/zFZ5jQ0yuNA?si=4GzXGC2mCvX90yU3"
                     title="YouTube video player"
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -47,34 +72,45 @@
                         <input type="email" class="form-control" name="mail" id="eMail" placeholder="name@domain.com">
                         <label for="eMail">Email:</label>
                     </div>
-                    <p>Would you recommend this website?</p>
-                    <label><input type="radio" name="recommend" value="yes">Yes</label>
-                    <br>
-                    <label><input type="radio" name="recommend" value="no" checked>No</label>
-                    <br><br>
-                    <label for="favsite">Choose your favourite website:</label>
-                    <br>
-                    <select name="website" class="form-control" id="favsite" size="6" multiple>
-                        <optgroup label="Choose:">
-                            <option value="facebook">Facebook</option>
-                            <option value="twitter">Twitter</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="snapchat">Snapchat</option>
-                            <option value="reddit">Reddit</option>
-                        </optgroup>
-                    </select>
-                    <br>
-                    <label for="rate">How would you rate this website on a scale from 1-10?</label>
+                    <div class="form-check form-check-inline">
+                        <p>Would you recommend this website?</p>
+                        <label class="form-check-label"><input class="form-check-input" type="radio" name="recommend"
+                                value="yes">Yes</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label class="form-check-label"><input class="form-check-input" type="radio" name="recommend"
+                                value="no" checked>No</label> </label>
+                        <br><br>
+                    </div>
+                    <div>
+                        <label for="favsite">Choose your favourite website:</label>
+                        <br>
+                        <select name="website" class="form-control" id="favsite" size="6" multiple>
+                            <optgroup label="Choose:">
+                                <option value="facebook">Facebook</option>
+                                <option value="twitter">Twitter</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="snapchat">Snapchat</option>
+                                <option value="reddit">Reddit</option>
+                            </optgroup>
+                        </select>
+                        <br>
+                    </div>
+                    <div>
+                        <label for="rate">How would you rate this website on a scale from 1-10?</label>
                     <br>
                     <input type="range" class="form-range" name="rating" id="rate" min="1" max="10" step="0.5"
                         value="1">
-                    <br><br>
-                    <label for="comments">Enter comments below:</label>
                     <br>
-                    <textarea name="comment" id="comments" placeholder="Enter additional comments here"></textarea>
-                    <br><br>
-                    <input type="submit" name="formSubmit" value="Submit">
-                    <input type="reset" name="formReset" value="Reset">
+                    </div>
+                    <div>
+                        <label for="comments">Enter comments below:</label>
+                    <br>
+                    <textarea class="form-control" name="comment" id="comments"
+                        placeholder="Enter additional comments here"></textarea>
+                    <br>
+                    </div>
+                    <input type="submit" class="btn btn-primary" name="formSubmit" value="Submit">
+                    <input type="reset" class="btn btn-secondary" name="formReset" value="Reset">
                 </form>
             </div>
         </div>
