@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Power Bill Calculator</title>
+    </head>
+    <body>
+        <div class="calculator">
+            <h1>Georgia Power Bill Calculator</h1>
+            <p>Yap text</p>
+            <p>Effective November 2025</p>
+            <form action="">
+                <input type="number" class="form-control" name="kWh" id="numkWh" required>
+                <input type="number" class="form-control" name="billperiod" id="billingperiod" min="0" max="31" required>
+                <input type="checkbox" class="form-control" name="incitylimits" id="withincitylimits">
+                <input type="checkbox" class="form-control" name="season" id="isseason">
+                <input type="number" class="form-control" name="tax" id="salestax" required>
+                <label for="numkWh">Enter your Monthly Usage in kilowatt hours (kWh): </label>
+                <label for="billingperiod">Enter the number of days for your current billing period: </label>
+                <label for="withincitylimits">Is your residence INSIDE the city limits of your city? </label>
+                <label for="isseason">Is this a summer month (June-September)? </label>
+                <label for="salestax">Enter sales tax (%): </label>
+
+                <input type="submit" name="formSubmit" value="Submit">
+                <input type="reset" name="formReset" value="Reset">
+            </form>
+        </div>
+
+        <div class="details">
+            <h1>Details of your bill</h1>
+        </div>
+    </body>
+</html>
