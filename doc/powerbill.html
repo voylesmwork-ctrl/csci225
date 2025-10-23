@@ -11,7 +11,7 @@
             <form action="">
                 <input type="number" class="form-control" name="kWh" id="numkWh" required>
                 <input type="number" class="form-control" name="billperiod" id="billingperiod" min="0" max="31" required>
-                <input type="checkbox" class="form-control" name="incitylimits" id="withincitylimits">
+                <input type="checkbox" class="form-control" name="incitylimits" id="withincitylimits" value="1">
                 <input type="checkbox" class="form-control" name="season" id="isseason">
                 <input type="number" class="form-control" name="tax" id="salestax" required>
                 <label for="numkWh">Enter your Monthly Usage in kilowatt hours (kWh): </label>
@@ -20,13 +20,86 @@
                 <label for="isseason">Is this a summer month (June-September)? </label>
                 <label for="salestax">Enter sales tax (%): </label>
 
-                <input type="submit" name="formSubmit" value="Submit">
-                <input type="reset" name="formReset" value="Reset">
+                <input type="submit" name="formSubmit" id="submitbtn" value="Submit">
+                <input type="reset" name="formReset" id="resetbtn" value="Reset">
             </form>
+            
+            <script>
+                function calcBill() {
+                    console.log("test");
+                    var usage = parseFloat(document.getElementById('numkWh').value);
+                    var billper = parseFloat(document.getElementById('billingperiod').value);
+                    var inlimits = parseFloat(document.getElementById('numkWh').value);
+                    var inseason = parseFloat(document.getElementById('isseson').value);
+                    var saletax = parseFloat(document.getElementById('salestax').value);
+                    console.log(usage + " " + billper + " " + inlimits + " " + inseason + " " + saletax);
+                }
+                var btnE = document.querySelector("#submitbtn");
+                btnE.addEventListener('click', calcBill, false);
+            </script>
+
         </div>
 
         <div class="details">
             <h1>Details of your bill</h1>
+            <table class="detailstable">
+                <tr>
+                    <th>Items</th>
+                    <th>Fees</th>
+                </tr>
+                <tr>
+                    <th>Base Charge:</th>
+                    <td id="basecharge"></td>
+                </tr>
+                <tr>
+                    <th>Tier 1 Component:</th>
+                    <td id="tier1comp"></td>
+                </tr>
+                <tr>
+                    <th>Tier 2 Component:</th>
+                    <td id="tier2comp"></td>
+                </tr>
+                <tr>
+                    <th>Tier 3 Component:</th>
+                    <td id="tier3comp"></td>
+                </tr>
+                <tr>
+                    <th><b>Base Revenue -- Base Bill Subtotal:</b></th>
+                    <td id="baserev"></td>
+                </tr>
+                <tr>
+                    <th>Fuel Cost Rider:</th>
+                    <td id="fcr"></td>
+                </tr>
+                <tr>
+                    <th>Demand Side Management Residential Rider:</th>
+                    <td id="dsmrrider"></td>
+                </tr>
+                <tr>
+                    <th>Nuclear Construction Cost Recovery Rider:</th>
+                    <td id="nccrrider"></td>
+                </tr>
+                <tr>
+                    <th>Environmental Compliance Cost Recovery Rider:</th>
+                    <td id="eccrrider"></td>
+                </tr>
+                <tr>
+                    <th><b>Total Revenue -- Current Service Subtotal:</b></th>
+                    <td id="totalrev"></td>
+                </tr>
+                <tr>
+                    <th>Franchise Fee:</th>
+                    <td id="franchfee"></td>
+                </tr>
+                <tr>
+                    <th><b>Total (excluding tax):</b></th>
+                    <td id="nontaxtotal"></td>
+                </tr>
+                <tr>
+                    <th><b>TOTAL (w/ tax):</b></th>
+                    <td id="taxtotal"></td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>
