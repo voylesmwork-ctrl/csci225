@@ -3,6 +3,62 @@
 
 <head>
     <title>Power Bill Calculator</title>
+    <style>
+        .calculator {
+            position: relative;
+            border: 1px solid black;
+            width: 97vh;
+            height: 75vh;
+            left: 0px;
+            display: inline-block;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .details {
+            position: relative;
+            border: 1px solid black;
+            width: 97vh;
+            height: 75vh;
+            right: 0px;
+            top: 0px;
+            display: inline-block;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .calculator input {
+            margin-bottom: 5px;
+        }
+        #withincitylimits {
+            margin-bottom: 15px;
+        }
+        #isseason {
+            margin-bottom: 15px;
+        }
+        th, td{
+            border-bottom: 1px solid black;
+            border-collapse: collapse;
+        }
+        table th {
+            width: 500px;
+            text-align: left;
+            padding-top : 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+        }
+        #feeslabel {
+            width: 200px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        table td {
+            text-align: right;
+            padding-top : 5px;
+            padding-bottom: 5px;
+            padding-right: 7px;
+        }
+    </style>
 </head>
 
 <body>
@@ -11,48 +67,90 @@
         <p>Yap text</p>
         <p>Effective November 2025</p>
         <form action="">
-            <input type="number" class="form-control" name="kWh" id="numkWh" required>
-            <input type="number" class="form-control" name="billperiod" id="billingperiod" min="0" max="31" required>
-            <input type="checkbox" class="form-control" name="incitylimits" id="withincitylimits" value="1">
-            <input type="checkbox" class="form-control" name="season" id="isseason">
-            <input type="number" class="form-control" name="tax" id="salestax" required>
-            <label for="numkWh">Enter your Monthly Usage in kilowatt hours (kWh): </label>
-            <label for="billingperiod">Enter the number of days for your current billing period: </label>
-            <label for="withincitylimits">Is your residence INSIDE the city limits of your city? </label>
-            <label for="isseason">Is this a summer month (June-September)? </label>
-            <label for="salestax">Enter sales tax (%): </label>
+            <label>Enter your Monthly Usage in kilowatt hours (kWh): <input type="number" class="form-control"
+                    name="kWh" id="numkWh" required></label>
+            <br>
+            <label>Enter the number of days for your current billing period: <input type="number" class="form-control"
+                    name="billperiod" id="billingperiod" min="0" max="31" required></label>
+            <br>
+            <label>Is your residence INSIDE the city limits of your city? <input type="checkbox" class="form-control"
+                    name="incitylimits" id="withincitylimits" value="1"></label>
+            <br>
+            <label>Is this a summer month (June-September)? <input type="checkbox" class="form-control" name="season"
+                    id="isseason"></label>
+            <br>
+            <label>Enter sales tax (%): <input type="number" class="form-control" name="tax" id="salestax"
+                    required></label>
+            <br>
 
-            <input type="submit" name="formSubmit" id="submitbtn" value="Submit">
-            <input type="reset" name="formReset" id="resetbtn" value="Reset">
+            <input id="submitbtn" type="button" value="Submit">
+            <input id="resetbtn" type="reset" value="Reset">
         </form>
 
         <script>
             function calcBill() {
+                console.log("Works");
                 var basecost = 0.4603;
                 var usage = parseFloat(document.getElementById('numkWh').value);
                 var billper = parseFloat(document.getElementById('billingperiod').value);
-                var inlimits = parseFloat(document.getElementById('numkWh').value);
-                var inseason = parseFloat(document.getElementById('isseson').value);
-                var saletax = parseFloat(document.getElementById('salestax').value);
+                var inlimits = document.getElementById("withincitylimits").checked;
+                var inseason = document.getElementById("isseason").checked;
+                var saletax = parseFloat(document.getElementById('salestax').value) / 100;
                 console.log(usage + " " + billper + " " + inlimits + " " + inseason + " " + saletax);
 
-                bcharge = basecost * billper;
+                var bcharge = basecost * billper;
 
-                if (inseason = 0) {
+                var t1 = 0;
+                var t2 = 0;
+                var t3 = 0;
+
+                if (inseason) {
                     if (usage > 1000) {
-                        finalcost += (usage * 0.114625);
+                        t1 = 0.066678 * usage; t2 = 0.110748 * usage; t3 = 0.114625 * usage;
                     } else if (usage > 650) {
-                        finalcost += (usage * 0.110748);
+                        t1 = 0.066678 * usage; t2 = 0.110748 * usage;
                     } else {
-                        finalcost += (usage * 0.066678);
+                        t1 = 0.066678 * usage;
                     }
                 } else {
-                    finalcost += (usage * 0.062404);
+                    if (usage > 1000) {
+                        t1 = 0.062404 * usage; t2 = 0.062404 * usage; t3 = 0.062404 * usage;
+                    } else if (usage > 650) {
+                        t1 = 0.062404 * usage; t2 = 0.062404 * usage;
+                    } else {
+                        t1 = 0.062404 * usage;
+                    }
                 }
 
-                var brev = bcharge + 1 + 2 + 3;
+                var brev = bcharge + t1 + t2 + t3;
 
-                _
+                if (inseason) { var fcrider = 0.045876 * usage; } else { var fcrider = 0.042859 * usage; }
+                var dsmresrider = brev * 0.015989; var nccrecrider = brev * 0.041562; var eccrecrider = brev * 0.162813;
+
+                var trev = brev + fcrider + dsmresrider + nccrecrider + eccrecrider;
+
+                if (inlimits) { var ff = trev * 0.030674; } else { var ff = trev * 0.011839; }
+
+                var tbt = trev + ff;
+                var tat = tbt + (tbt * saletax);
+
+                document.getElementById('basecharge').textContent = bcharge.toFixed(2);
+                document.getElementById('tier1comp').textContent = t1.toFixed(2);
+                document.getElementById('tier2comp').textContent = t2.toFixed(2);
+                document.getElementById('tier3comp').textContent = t3.toFixed(2);
+                document.getElementById('baserev').textContent = brev.toFixed(2);
+                document.getElementById('fcr').textContent = fcrider.toFixed(2);
+                document.getElementById('dsmrrider').textContent = dsmresrider.toFixed(2);
+                document.getElementById('nccrrider').textContent = nccrecrider.toFixed(2);
+                document.getElementById('eccrrider').textContent = eccrecrider.toFixed(2);
+                document.getElementById('totalrev').textContent = trev.toFixed(2);
+                document.getElementById('franchfee').textContent = ff.toFixed(2);
+                document.getElementById('nontaxtotal').textContent = tbt.toFixed(2);
+                document.getElementById('taxtotal').textContent = tat.toFixed(2);
+
+                if (tat > 500) {
+                    window.open("https://www.georgiapower.com/residential/save-money-and-energy/products-programs.html");
+                }
             }
             var btnE = document.querySelector("#submitbtn");
             btnE.addEventListener('click', calcBill, false);
@@ -65,7 +163,7 @@
         <table class="detailstable">
             <tr>
                 <th>Items</th>
-                <th>Fees</th>
+                <th id="feeslabel">Fees</th>
             </tr>
             <tr>
                 <th>Base Charge:</th>
